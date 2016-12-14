@@ -31,7 +31,7 @@ if ($_REQUEST['url']) {
         //File Download magic
         header('Content-Type: application/octet-stream');
         header("Content-Transfer-Encoding: Binary");
-        header("Content-disposition: attachment; filename=\"".filename."\"");
+        header("Content-disposition: attachment; filename=\"".$filename."\"");
         readfile($file_url);
         unlink($file_url);
     } else {
