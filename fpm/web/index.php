@@ -44,9 +44,9 @@ if ($_REQUEST['url']) {
     echo '<html>
         <body>
         <form action="" method="POST">
-        Webpage:<input type="text" name="url" placeholder="http://someplace.com"/>
+        <input type="text" name="url" placeholder="http://someplace.com"/>
 	<input type="submit"/></br>
-	Filename:<input type="text" name="filename" placeholder="output.pdf"/>
+	<input type="text" name="filename" placeholder="output.pdf"/>
         </form>
         </body>
         </html>';
