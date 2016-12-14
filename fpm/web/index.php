@@ -6,6 +6,8 @@ $filename = "output.pdf";
 if ($_REQUEST['filename']){
 	if ($_GET['filename']) {
 		$filename = $_GET['filename'];
+	}else{
+		$filename = $_POST['filename'];
 	}
 }
 
@@ -43,6 +45,7 @@ if ($_REQUEST['url']) {
         <body>
         <form action="" method="POST">
         <input type="text" name="url" placeholder="http://someplace.com"/>
+	<input type="text" name="filename" placeholder="output.pdf"/>
         <input type="submit"/>
         </form>
         </body>
