@@ -2,6 +2,13 @@
 
 require 'decoder.php';
 
+$filename = "output.pdf";
+if ($_REQUEST['filename']){
+	if ($_GET['filename']) {
+		$filename = $_GET['filename'];
+	}
+}
+
 if ($_REQUEST['url']) {
 
     $url = "";
@@ -24,7 +31,7 @@ if ($_REQUEST['url']) {
         //File Download magic
         header('Content-Type: application/octet-stream');
         header("Content-Transfer-Encoding: Binary");
-        header("Content-disposition: attachment; filename=\"output.pdf\"");
+        header("Content-disposition: attachment; filename=\"".filename."\"");
         readfile($file_url);
         unlink($file_url);
     } else {
