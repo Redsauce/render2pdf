@@ -17,9 +17,12 @@ if ($_REQUEST['url']) {
     exec($command);
     if (file_exists($file_url)) {
         //File Download magic
+        $pageTitle = page_title($url);
+        if ($pageTitle == "" || $pageTitle == null)
+            $pageTitle = "output";
         header('Content-Type: application/octet-stream');
         header("Content-Transfer-Encoding: Binary");
-        header("Content-disposition: attachment; filename=\"".page_title($url).".pdf\"");
+        header("Content-disposition: attachment; filename=\"".$pageTitle.".pdf\"");
         readfile($file_url);
         unlink($file_url);
     } else {
