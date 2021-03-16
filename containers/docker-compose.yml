@@ -6,6 +6,9 @@ nginx:
         - "443:443"
     links:
         - fpm
+    volumes:
+        - ./data/certbot/conf:/etc/letsencrypt
+        - ./data/certbot/www:/var/www/certbot
 fpm:
     build: fpm
     restart: always
