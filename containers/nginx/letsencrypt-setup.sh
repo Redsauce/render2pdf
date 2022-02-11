@@ -1,9 +1,12 @@
 #!/bin/sh
+set -xe
 
 nginx && \
 certbot --nginx --non-interactive --agree-tos --email webmaster@redsauce.net --domains pdf.redsauce.net && \
-killall nginx && sleep 1 && \
-crond && nginx -g "daemon off;"
+killall nginx
+
+go run /scheduler/scheduler.go 02:30 certbot renew
+nginx -g "daemon off;"
 
 # echo "certbot renew" > /etc/periodic/daily/cerbot-renewal && \
 # chmod +x /etc/periodic/daily/certbot-renewal && \
