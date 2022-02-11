@@ -5,7 +5,7 @@ nginx && \
 certbot --nginx --non-interactive --agree-tos --email webmaster@redsauce.net --domains pdf.redsauce.net && \
 killall nginx
 
-go run /scheduler/scheduler.go 02:30 certbot renew
+go run /scheduler/scheduler.go 02:30 certbot renew &
 nginx -g "daemon off;"
 
 # echo "certbot renew" > /etc/periodic/daily/cerbot-renewal && \
