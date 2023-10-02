@@ -5,7 +5,7 @@ if (array_key_exists('url', $_REQUEST)) {
 
     // Get the url if exists
     $url = "";
-    if ($_GET['url']) {
+    if (array_key_exists('url', $_GET)) {
         $url = base32_decode($_GET['url']);
     } else {
         $url = $_POST['url'];
@@ -13,10 +13,10 @@ if (array_key_exists('url', $_REQUEST)) {
 
     // Get filename if exist
     $fileName = "";
-    if ($_GET['filename']) {
+    if (array_key_exists('filename', $_GET)) {
         $fileName = $_GET['filename'];
     }
-    if ($_POST['filename']) {
+    if (array_key_exists('filename', $_POST)) {
         $fileName = $_POST['filename'];
     }
 
