@@ -1,7 +1,7 @@
 <?php
 require 'decoder.php';
 require 'page_title.php';
-if ($_REQUEST['url']) {
+if (array_key_exists('url', $_REQUEST)) {
 
     // Get the url if exists
     $url = "";
