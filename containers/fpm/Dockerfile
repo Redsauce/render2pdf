@@ -1,9 +1,9 @@
-FROM php:7.0-fpm
+FROM php:8.2-fpm
 MAINTAINER Kenan Rhoton
 RUN apt-get update
 
 # Framebuffer to render webpages and some font packages to make them look right
-RUN apt-get install -y xvfb ttf-freefont fontconfig dbus
+RUN apt-get install -y xvfb fontconfig dbus
 
 # Our html to PDF renderer
 RUN apt-get install -y wkhtmltopdf
